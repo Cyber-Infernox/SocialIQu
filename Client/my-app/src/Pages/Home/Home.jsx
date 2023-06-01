@@ -3,6 +3,8 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Rightbar from "../../Components/Rightbar/Rightbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 
+import "./Home.css";
+
 const Home = () => {
   return (
     <div>

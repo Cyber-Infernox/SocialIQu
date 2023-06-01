@@ -2,7 +2,7 @@ import "./Feed.css";
 
 const Feed = () => {
   return (
-    <div>
+    <div className="feed">
       <div>Feed</div>
     </div>
   );
