@@ -1,7 +1,16 @@
 import "./App.css";
 
+// Pages
+import Home from "./Pages/Home/Home";
+
 function App() {
-  return <div className="App bg-slate-500">WELCOME TO SocialIQu</div>;
+  return (
+    <div>
+      <div>
+        <Home />
+      </div>
+    </div>
+  );
 }
 
 export default App;
