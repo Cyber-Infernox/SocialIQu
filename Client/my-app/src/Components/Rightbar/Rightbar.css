@@ -32,46 +32,14 @@
 
 .rightbarTitle {
   margin-bottom: 20px;
-  padding-left: 10px;
+  padding-left: 40px;
+  font-size: 23px;
+  padding-top: 20px;
 }
 
 .rightbarFriendList {
   padding: 0;
   margin: 0;
   list-style: none;
-  padding-left: 10px;
+  padding-left: 40px;
 }
-
-.rightbarFriend {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.rightbarProfileImgContainer {
-  margin-right: 10px;
-  /* position: relative; */
-  display: flex;
-}
-
-.rightbarProfileImg {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.rightbarUsername {
-  padding-left: 15px;
-}
-
-/* .rightbarOnline {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: limegreen;
-  position: absolute;
-  top: 545px;
-  left: 1122px;
-  border: 2px solid white;
-} */

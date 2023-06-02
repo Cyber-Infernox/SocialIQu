@@ -19,11 +19,14 @@
 .postTopLeft {
   display: flex;
   align-items: center;
+  padding-left: 5px;
+  padding-top: 5px;
+  width: 83%;
 }
 
 .postProfileImg {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -32,13 +35,12 @@
   font-size: 15px;
   font-weight: 500;
   margin: 0 10px;
-  align-items: center;
+  width: 100%;
 }
 
 .postDate {
   font-size: 12px;
-  padding-left: 398px;
-  align-items: center;
+  padding-right: 15px;
 }
 
 .postCenter {
@@ -79,6 +81,7 @@
 
 .postLikeCounter {
   font-size: 15px;
+  padding-left: 2px;
 }
 
 .postCommentText {

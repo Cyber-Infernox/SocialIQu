@@ -2,7 +2,10 @@ import "./Rightbar.css";
 
 import img from "../../Assets/Home/Navbar/logo.png";
 
+import { UsersData } from "../../dummyData";
+
 import CakeIcon from "@mui/icons-material/Cake";
+import Online from "../Online/Online";
 
 const Rightbar = () => {
   return (
@@ -17,76 +20,9 @@ const Rightbar = () => {
         <img src={img} alt="" className="rightbarAd" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
-          <li className="rightbarFriend">
-            <div className="rihtbarProfileImgContainer">
-              <img src={img} alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Lionel Messi</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rihtbarProfileImgContainer">
-              <img src={img} alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Lionel Messi</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rihtbarProfileImgContainer">
-              <img src={img} alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Lionel Messi</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rihtbarProfileImgContainer">
-              <img src={img} alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Lionel Messi</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rihtbarProfileImgContainer">
-              <img src={img} alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Lionel Messi</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rihtbarProfileImgContainer">
-              <img src={img} alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Lionel Messi</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rihtbarProfileImgContainer">
-              <img src={img} alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Lionel Messi</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rihtbarProfileImgContainer">
-              <img src={img} alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Lionel Messi</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rihtbarProfileImgContainer">
-              <img src={img} alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Lionel Messi</span>
-          </li>
-          <li className="rightbarFriend">
-            <div className="rihtbarProfileImgContainer">
-              <img src={img} alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Lionel Messi</span>
-          </li>
+          {UsersData.map((u) => (
+            <Online key={u.id} user={u} />
+          ))}
         </ul>
       </div>
     </div>
