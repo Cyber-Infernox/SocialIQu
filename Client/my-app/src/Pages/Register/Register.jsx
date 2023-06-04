@@ -6,7 +6,9 @@ const Register = () => {
       <div className="loginWrapper">
         <div className="loginLeft">
           <h3 className="loginLogo">SocialIQu</h3>
-          <span className="loginDesc">Connect with friends and the world!</span>
+          <span className="loginDesc">
+            Connect with friends and the world easily!
+          </span>
         </div>
         <div className="loginRight">
           <div className="registerBox">
