@@ -24,7 +24,7 @@ const Post = ({ post }) => {
     // console.log("Users Rendered");
 
     const fetchUser = async () => {
-      const response = await axios.get(`/api/users/${post.userId}`);
+      const response = await axios.get(`/api/users?userId=${post.userId}`);
 
       // console.log(response);
       setUser(response.data);

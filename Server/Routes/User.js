@@ -42,10 +42,14 @@ Router.delete("/:id", async (req, res) => {
 });
 
 // Get User
-Router.get("/:id", async (req, res) => {
+Router.get("/", async (req, res) => {
+  const userId = req.query.userId;
+  const username = req.query.username;
   // if (req.body.userId === req.params.id || req.body.isAdmin) {
   try {
-    const user = await User.findById(req.params.id);
+    const user = userId
+      ? await User.findById(userId)
+      : await User.findOne({ username: username });
     const { password, updatedAt, _id, createdAt, __v, ...other } = user._doc;
     res.status(200).json(other);
   } catch (err) {

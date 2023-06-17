@@ -7,7 +7,7 @@ import { UsersData } from "../../dummyData";
 import CakeIcon from "@mui/icons-material/Cake";
 import Online from "../Online/Online";
 
-const Rightbar = ({ Profile }) => {
+const Rightbar = ({ user }) => {
   const HomeRightBar = () => {
     return (
       <>
@@ -35,15 +35,21 @@ const Rightbar = ({ Profile }) => {
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">City: </span>
-            <span className="rightbarInfoValue">Kolkata</span>
+            <span className="rightbarInfoValue">{user.city}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">From: </span>
-            <span className="rightbarInfoValue">New Jersey</span>
+            <span className="rightbarInfoValue">{user.from}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">Relationship: </span>
-            <span className="rightbarInfoValue">Single</span>
+            <span className="rightbarInfoValue">
+              {user.relationship === 1
+                ? "Single"
+                : user.relationship === 2
+                ? "Married"
+                : "None"}
+            </span>
           </div>
         </div>
         <h4 className="rightbarTitle">User Friends</h4>
@@ -80,7 +86,7 @@ const Rightbar = ({ Profile }) => {
   return (
     <div className="rightbar">
       <div className="rightbarWrapper">
-        {Profile ? <ProfileRightBar /> : <HomeRightBar />}
+        {user ? <ProfileRightBar /> : <HomeRightBar />}
       </div>
     </div>
   );
