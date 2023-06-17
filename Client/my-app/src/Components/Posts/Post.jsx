@@ -1,5 +1,6 @@
 import "./Post.css";
 
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { format } from "timeago.js";
@@ -23,7 +24,7 @@ const Post = ({ post }) => {
     // console.log("Users Rendered");
 
     const fetchUser = async () => {
-      const response = await axios.get(`users/${post.userId}`);
+      const response = await axios.get(`/api/users/${post.userId}`);
 
       // console.log(response);
       setUser(response.data);
@@ -42,11 +43,13 @@ const Post = ({ post }) => {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img
-              className="postProfileImg"
-              src={user.profilePicture || DummyProfilePic}
-              alt=""
-            />
+            <Link to={`/profile/${user.username}`}>
+              <img
+                className="postProfileImg"
+                src={user.profilePicture || DummyProfilePic}
+                alt=""
+              />
+            </Link>
             <span className="postUsername">{user.username}</span>
           </div>
           <div className="postTopRight">

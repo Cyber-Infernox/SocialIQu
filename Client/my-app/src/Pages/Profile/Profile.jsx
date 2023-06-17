@@ -27,7 +27,7 @@ const Profile = () => {
               </div>
             </div>
             <div className="profileRightBottom">
-              <Feed />
+              <Feed username="Sayon" />
               <Rightbar Profile />
             </div>
           </div>
