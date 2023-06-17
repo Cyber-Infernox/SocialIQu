@@ -43,17 +43,17 @@ Router.delete("/:id", async (req, res) => {
 
 // Get User
 Router.get("/:id", async (req, res) => {
-  if (req.body.userId === req.params.id || req.body.isAdmin) {
-    try {
-      const user = await User.findById(req.params.id);
-      const { password, updatedAt, _id, createdAt, __v, ...other } = user._doc;
-      res.status(200).json(other);
-    } catch (err) {
-      console.log(err);
-    }
-  } else {
-    return res.status(400).json("You can only open your account");
+  // if (req.body.userId === req.params.id || req.body.isAdmin) {
+  try {
+    const user = await User.findById(req.params.id);
+    const { password, updatedAt, _id, createdAt, __v, ...other } = user._doc;
+    res.status(200).json(other);
+  } catch (err) {
+    console.log(err);
   }
+  // } else {
+  //   return res.status(400).json("You can only open your account");
+  // }
 });
 
 // Follow User

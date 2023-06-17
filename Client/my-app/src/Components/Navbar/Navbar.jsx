@@ -1,5 +1,7 @@
 import "./Navbar.css";
 
+import { Link } from "react-router-dom";
+
 import img from "../../Assets/Home/Navbar/logo.png";
 
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
@@ -11,7 +13,9 @@ const Navbar = () => {
   return (
     <div className="navBarContainer">
       <div className="navBarLeft">
-        <span className="logo">SocialIQu</span>
+        <Link to="/">
+          <span className="logo">SocialIQu</span>
+        </Link>
       </div>
 
       <div className="navBarCenter">

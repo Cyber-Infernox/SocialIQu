@@ -5,8 +5,8 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 
 import "./Profile.css";
 
-import CoverImg from "../../Assets/Profile/Cover.png";
-import ProfileImg from "../../Assets/Profile/Profile.jpg";
+import DummyProfilePic from "../../Assets/Profile/DummyProfilePic.jpg";
+import DummyCoverPic from "../../Assets/Profile/DummyCoverPic.jpg";
 
 const Profile = () => {
   return (
@@ -18,8 +18,8 @@ const Profile = () => {
           <div className="profileRight">
             <div className="profileRightTop">
               <div className="profileCover">
-                <img className="profileCoverImg" src={CoverImg} alt="" />
-                <img className="profileUserImg" src={ProfileImg} alt="" />
+                <img className="profileCoverImg" src={DummyCoverPic} alt="" />
+                <img className="profileUserImg" src={DummyProfilePic} alt="" />
               </div>
               <div className="profileInfo">
                 <h4 className="profileInfoName">Sayon Kar</h4>
