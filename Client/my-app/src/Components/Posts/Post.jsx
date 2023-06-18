@@ -1,32 +1,31 @@
 import "./Post.css";
 
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { format } from "timeago.js";
+import axios from "axios";
 
+import { AuthContext } from "../../Context/AuthContext";
 import DummyProfilePic from "../../Assets/Profile/DummyProfilePic.jpg";
 
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-// import { UsersData } from "../../dummyData";
-
 const Post = ({ post }) => {
-  // const user = UsersData.filter((u) => u.id === post.userId);
-
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
+  const { user: loggedInUser } = useContext(AuthContext);
 
   useEffect(() => {
-    // console.log("Users Rendered");
+    setIsLiked(post.likes.includes(loggedInUser._id));
+  }, [loggedInUser._id, post.likes]);
 
+  useEffect(() => {
     const fetchUser = async () => {
       const response = await axios.get(`/api/users?userId=${post.userId}`);
 
-      // console.log(response);
       setUser(response.data);
     };
 
@@ -34,6 +33,12 @@ const Post = ({ post }) => {
   }, [post.userId]);
 
   const likeHandler = () => {
+    try {
+      axios.put(`/api/posts/${post._id}/likes`, { userId: loggedInUser._id });
+    } catch (error) {
+      console.log(error);
+    }
+
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };

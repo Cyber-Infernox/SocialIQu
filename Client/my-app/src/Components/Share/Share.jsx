@@ -1,6 +1,8 @@
-import "./Share.css";
+import { useContext } from "react";
 
-import img from "../../Assets/Home/Navbar/logo.png";
+import { AuthContext } from "../../Context/AuthContext";
+import DummyProfilePic from "../../Assets/Profile/DummyProfilePic.jpg";
+import "./Share.css";
 
 import PermMediaIcon from "@mui/icons-material/PermMedia";
 import LabelIcon from "@mui/icons-material/Label";
@@ -8,13 +10,19 @@ import RoomIcon from "@mui/icons-material/Room";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 
 const Share = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img className="shareProfileImg" src={img} alt="" />
+          <img
+            className="shareProfileImg"
+            src={user.profilePicture || DummyProfilePic}
+            alt=""
+          />
           <input
-            placeholder="What's in your mind Sayon?"
+            placeholder={`What's in your mind ${user.username}?`}
             className="shareInput"
           />
         </div>
