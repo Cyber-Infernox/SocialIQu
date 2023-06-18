@@ -53,11 +53,13 @@ const Login = () => {
               {isFetching ? <CachedIcon /> : "Sign In"}
             </button>
             <span className="loginForgot">Forgot Password?</span>
-            <Link to={`/register`}>
-              <span className="loginRegisterButton">
-                {isFetching ? <CachedIcon /> : "Create a new account"}
-              </span>
-            </Link>
+            <span className="loginRegisterButton">
+              <Link to="/register">
+                <div>
+                  {isFetching ? <CachedIcon /> : "Create a new account"}
+                </div>
+              </Link>
+            </span>
           </form>
         </div>
       </div>

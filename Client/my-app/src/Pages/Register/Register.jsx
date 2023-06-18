@@ -1,4 +1,7 @@
 import { useRef } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Register.css";
 
@@ -8,9 +11,27 @@ const Register = () => {
   const password = useRef();
   const passwordAgain = useRef();
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email.current.value);
+
+    if (passwordAgain.current.value !== password.current.value) {
+      passwordAgain.current.setCustomValidity("Passwords don't match");
+    } else {
+      const user = {
+        username: username.current.value,
+        email: email.current.value,
+        password: password.current.value,
+      };
+      try {
+        await axios.post("/api/auth/register", user);
+        navigate("/login");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    // console.log(email.current.value);
   };
 
   return (
@@ -27,14 +48,14 @@ const Register = () => {
             <input
               placeholder="Username"
               className="loginInput"
-              type="email"
+              type="string"
               ref={username}
               required
             />
             <input
               placeholder="Email"
               className="loginInput"
-              type="string"
+              type="email"
               ref={email}
               required
             />
@@ -55,7 +76,11 @@ const Register = () => {
               required
             />
             <button className="loginButton">Sign Up</button>
-            <span className="loginRegisterButton">Log into account</span>
+            <span className="loginRegisterButton">
+              <Link to="/login">
+                <div>Log into account</div>
+              </Link>
+            </span>
           </form>
         </div>
       </div>
