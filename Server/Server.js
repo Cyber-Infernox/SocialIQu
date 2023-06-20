@@ -14,7 +14,7 @@ const postRoutes = require("./Routes/Post");
 const express = require("express");
 const app = express();
 
-app.use("uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/images", express.static(path.join(__dirname, "Assets/Images")));
 
 // Middlewares
 app.use(express.json());
@@ -28,10 +28,11 @@ app.use((req, res, next) => {
 // File Management
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "Assets/Posts");
+    cb(null, "Assets/Images");
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname);
+    cb(null, req.body.name);
+    // file.originalname (For Postman)
   },
 });
 const upload = multer({ storage });
