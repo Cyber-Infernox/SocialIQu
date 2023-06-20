@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
+import axios from "axios";
 
 import { AuthContext } from "../../Context/AuthContext";
 import DummyProfilePic from "../../Assets/Profile/DummyProfilePic.jpg";
@@ -11,6 +12,24 @@ import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 
 const Share = () => {
   const { user } = useContext(AuthContext);
+  const desc = useRef();
+  const [file, setFile] = useState(null);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    const newPost = {
+      userId: user._id,
+      desc: desc.current.value,
+    };
+
+    try {
+      await axios.post("/api/posts/", newPost);
+      console.log("Posted");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="share">
@@ -24,15 +43,23 @@ const Share = () => {
           <input
             placeholder={`What's in your mind ${user.username}?`}
             className="shareInput"
+            ref={desc}
           />
         </div>
         <hr className="shareHr" />
-        <div className="shareBottom">
+        <form className="shareBottom" onSubmit={submitHandler}>
           <div className="shareOptions">
-            <div className="shareOption">
+            <label htmlFor="file" className="shareOption">
               <PermMediaIcon htmlColor="tomato" className="shareIcon" />
               <span className="shareOptionText">Photo or Video</span>
-            </div>
+              <input
+                style={{ display: "none" }}
+                type="file"
+                id="file"
+                accept=".png,.jpg,.jpeg"
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+            </label>
             <div className="shareOption">
               <LabelIcon htmlColor="blue" className="shareIcon" />
               <span className="shareOptionText">Tag</span>
@@ -47,7 +74,7 @@ const Share = () => {
             </div>
           </div>
           <button className="shareButton">Share</button>
-        </div>
+        </form>
       </div>
     </div>
   );
