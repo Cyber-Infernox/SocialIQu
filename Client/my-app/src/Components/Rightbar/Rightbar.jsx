@@ -14,18 +14,22 @@ const Rightbar = ({ user }) => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [friends, setFriends] = useState([]);
 
+  console.log(user);
+
   useEffect(() => {
     const getFriends = async () => {
       try {
         // 647b390b2f09580bdd660ed6
-        const friendList = await axios.get("/api/users/friends/" + user._id);
+        const friendList = await axios.get(
+          "/api/users/friends/647b390b2f09580bdd660ed6"
+        );
         setFriends(friendList.data);
       } catch (err) {
         console.log(err);
       }
     };
     getFriends();
-  }, [user._id]);
+  }, []);
 
   const HomeRightBar = () => {
     return (
