@@ -50,7 +50,7 @@ Router.get("/", async (req, res) => {
     const user = userId
       ? await User.findById(userId)
       : await User.findOne({ username: username });
-    const { password, updatedAt, _id, createdAt, __v, ...other } = user._doc;
+    const { password, updatedAt, createdAt, __v, ...other } = user._doc;
     res.status(200).json(other);
   } catch (err) {
     console.log(err);
@@ -58,6 +58,26 @@ Router.get("/", async (req, res) => {
   // } else {
   //   return res.status(400).json("You can only open your account");
   // }
+});
+
+// Get User Friends
+Router.get("/friends/:userId", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    const friends = await Promise.all(
+      user.following.map((friendId) => {
+        return User.findById(friendId);
+      })
+    );
+    let friendList = [];
+    friends.map((friend) => {
+      const { _id, username, profilePicture } = friend;
+      friendList.push({ _id, username, profilePicture });
+    });
+    res.status(200).json(friendList);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 // Follow User

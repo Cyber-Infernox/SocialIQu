@@ -1,35 +1,29 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+
 import Feed from "../../Components/Feed/Feed";
 import Navbar from "../../Components/Navbar/Navbar";
 import Rightbar from "../../Components/Rightbar/Rightbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-
 import "./Profile.css";
 
-import DummyProfilePic from "../../Assets/Profile/DummyProfilePic.jpg";
-import DummyCoverPic from "../../Assets/Profile/DummyCoverPic.jpg";
-
 const Profile = () => {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
   const params = useParams();
 
   useEffect(() => {
-    // console.log("Users Rendered");
-
     const fetchUser = async () => {
       const response = await axios.get(
         `/api/users?username=${params.username}`
       );
 
-      // console.log(response);
       setUser(response.data);
     };
 
     fetchUser();
-  }, []);
+  }, [params.username]);
 
   return (
     <div>
@@ -42,18 +36,26 @@ const Profile = () => {
               <div className="profileCover">
                 <img
                   className="profileCoverImg"
-                  src={user.profilePicture || DummyCoverPic}
+                  src={
+                    user.coverPicture
+                      ? PF + user.coverPicture
+                      : PF + "/Profile/DummyCoverPic.jpg"
+                  }
                   alt=""
                 />
                 <img
                   className="profileUserImg"
-                  src={user.coverPicture || DummyProfilePic}
+                  src={
+                    user.profilePicture
+                      ? PF + user.profilePicture
+                      : PF + "/Profile/DummyProfilePic.jpg"
+                  }
                   alt=""
                 />
               </div>
               <div className="profileInfo">
                 <h4 className="profileInfoName">{user.username}</h4>
-                <span className="profileInfoDesc">Hello there!!</span>
+                <span className="profileInfoDesc">{user.desc}</span>
               </div>
             </div>
             <div className="profileRightBottom">
