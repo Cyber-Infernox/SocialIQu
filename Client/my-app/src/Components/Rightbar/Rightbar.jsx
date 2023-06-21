@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import { AuthContext } from "../../Context/AuthContext";
 import Online from "../Online/Online";
 import "./Rightbar.css";
 
@@ -9,12 +10,16 @@ import img from "../../Assets/Home/Navbar/logo.png";
 import { UsersData } from "../../dummyData";
 
 import CakeIcon from "@mui/icons-material/Cake";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const Rightbar = ({ user }) => {
+  const { user: currUser, dispatch } = useContext(AuthContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [friends, setFriends] = useState([]);
-
-  console.log(user);
+  const [followed, setFollowed] = useState(
+    currUser.following.includes("647ae4d289de95cae9f6d12c")
+  );
 
   useEffect(() => {
     const getFriends = async () => {
@@ -30,6 +35,25 @@ const Rightbar = ({ user }) => {
     };
     getFriends();
   }, []);
+
+  const followHandler = async () => {
+    try {
+      if (followed) {
+        await axios.put("/api/users/647ae4d289de95cae9f6d12c/unfollow", {
+          userId: currUser._id,
+        });
+        dispatch({ type: "UNFOLLOW", payload: "647ae4d289de95cae9f6d12c" });
+      } else {
+        await axios.put("/api/users/647ae4d289de95cae9f6d12c/follow", {
+          userId: currUser._id,
+        });
+        dispatch({ type: "FOLLOW", payload: "647ae4d289de95cae9f6d12c" });
+      }
+      setFollowed(!followed);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const HomeRightBar = () => {
     return (
@@ -54,6 +78,16 @@ const Rightbar = ({ user }) => {
   const ProfileRightBar = () => {
     return (
       <>
+        {user.username !== currUser.username && (
+          <button className="rightbarFollowButton" onClick={followHandler}>
+            {followed ? (
+              <div className="rightbarFollowText">Unfollow</div>
+            ) : (
+              <div className="rightbarFollowText">Follow</div>
+            )}
+            {followed ? <RemoveIcon /> : <AddIcon />}
+          </button>
+        )}
         <h4 className="rightbarTitle">User Information Title</h4>
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
