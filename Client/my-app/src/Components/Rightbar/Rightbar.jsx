@@ -18,7 +18,7 @@ const Rightbar = ({ user }) => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [friends, setFriends] = useState([]);
   const [followed, setFollowed] = useState(
-    currUser.following.includes("647ae4d289de95cae9f6d12c")
+    currUser.following.includes(user?._id)
   );
 
   useEffect(() => {
