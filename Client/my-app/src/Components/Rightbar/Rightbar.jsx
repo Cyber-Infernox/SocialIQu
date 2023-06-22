@@ -21,33 +21,37 @@ const Rightbar = ({ user }) => {
     currUser.following.includes(user?._id)
   );
 
+  let userId;
+  if (user) {
+    userId = user._id;
+  }
+
   useEffect(() => {
     const getFriends = async () => {
       try {
         // 647b390b2f09580bdd660ed6
-        const friendList = await axios.get(
-          "/api/users/friends/647b390b2f09580bdd660ed6"
-        );
+        const friendList = await axios.get("/api/users/friends/" + userId);
         setFriends(friendList.data);
       } catch (err) {
         console.log(err);
       }
     };
     getFriends();
-  }, []);
+  }, [userId]);
 
   const followHandler = async () => {
     try {
       if (followed) {
-        await axios.put("/api/users/647ae4d289de95cae9f6d12c/unfollow", {
+        // 647ae4d289de95cae9f6d12c
+        await axios.put("/api/users/" + userId + "/unfollow", {
           userId: currUser._id,
         });
-        dispatch({ type: "UNFOLLOW", payload: "647ae4d289de95cae9f6d12c" });
+        dispatch({ type: "UNFOLLOW", payload: userId });
       } else {
-        await axios.put("/api/users/647ae4d289de95cae9f6d12c/follow", {
+        await axios.put("/api/users/" + userId + "/follow", {
           userId: currUser._id,
         });
-        dispatch({ type: "FOLLOW", payload: "647ae4d289de95cae9f6d12c" });
+        dispatch({ type: "FOLLOW", payload: userId });
       }
       setFollowed(!followed);
     } catch (error) {
