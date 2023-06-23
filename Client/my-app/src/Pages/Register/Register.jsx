@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import "./Register.css";
 
@@ -31,7 +31,6 @@ const Register = () => {
         console.log(error);
       }
     }
-    // console.log(email.current.value);
   };
 
   return (

@@ -2,7 +2,6 @@ import { useContext, useRef, useState } from "react";
 import axios from "axios";
 
 import { AuthContext } from "../../Context/AuthContext";
-import DummyProfilePic from "../../Assets/Profile/DummyProfilePic.jpg";
 import "./Share.css";
 
 import PermMediaIcon from "@mui/icons-material/PermMedia";
@@ -13,7 +12,10 @@ import CancelIcon from "@mui/icons-material/Cancel";
 
 const Share = () => {
   const { user } = useContext(AuthContext);
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   const desc = useRef();
+
   const [file, setFile] = useState(null);
 
   const submitHandler = async (e) => {
@@ -53,7 +55,11 @@ const Share = () => {
         <div className="shareTop">
           <img
             className="shareProfileImg"
-            src={user.profilePicture || DummyProfilePic}
+            src={
+              user.profilePicture
+                ? PF + user.profilePicture
+                : PF + "/Profile/DummyProfilePic.jpg"
+            }
             alt=""
           />
           <input

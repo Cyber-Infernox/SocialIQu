@@ -1,29 +1,25 @@
 import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 
-import "./Login.css";
-
 import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../Context/AuthContext";
+import "./Login.css";
 
 import CachedIcon from "@mui/icons-material/Cached";
 
 const Login = () => {
+  const { user, isFetching, error, dispatch } = useContext(AuthContext);
+
   const email = useRef();
   const password = useRef();
 
-  const { user, isFetching, error, dispatch } = useContext(AuthContext);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(email.current.value);
     loginCall(
       { email: email.current.value, password: password.current.value },
       dispatch
     );
   };
-
-  // console.log(user);
 
   return (
     <div className="login">

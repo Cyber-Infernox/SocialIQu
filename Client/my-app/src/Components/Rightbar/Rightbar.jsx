@@ -6,7 +6,6 @@ import { AuthContext } from "../../Context/AuthContext";
 import Online from "../Online/Online";
 import "./Rightbar.css";
 
-import img from "../../Assets/Home/Navbar/logo.png";
 import { UsersData } from "../../dummyData";
 
 import CakeIcon from "@mui/icons-material/Cake";
@@ -16,6 +15,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 const Rightbar = ({ user }) => {
   const { user: currUser, dispatch } = useContext(AuthContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   const [friends, setFriends] = useState([]);
   const [followed, setFollowed] = useState(
     currUser.following.includes(user?._id)
@@ -68,7 +68,7 @@ const Rightbar = ({ user }) => {
             <b>Virat Kohli</b> and 3 others have their birthday today
           </span>
         </div>
-        <img src={img} alt="" className="rightbarAd" />
+        <img src={PF + "/Ad/Ad.png"} alt="" className="rightbarAd" />
         <h4 className="rightbarTitle">Online Friends</h4>
         <ul className="rightbarFriendList">
           {UsersData.map((u) => (

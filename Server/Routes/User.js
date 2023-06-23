@@ -1,7 +1,7 @@
 const Router = require("express").Router();
-const User = require("../Models/User");
-
 const bcrypt = require("bcrypt");
+
+const User = require("../Models/User");
 
 // Update User
 Router.put("/:id", async (req, res) => {

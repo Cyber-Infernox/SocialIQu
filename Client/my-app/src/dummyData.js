@@ -1,74 +1,54 @@
-import postImg1 from "./Assets/Post/1.jpeg";
-import postImg2 from "./Assets/Post/2.jpeg";
-import postImg3 from "./Assets/Post/3.jpeg";
-import postImg4 from "./Assets/Post/4.jpeg";
-import postImg5 from "./Assets/Post/5.jpeg";
-import postImg6 from "./Assets/Post/6.jpeg";
-import postImg7 from "./Assets/Post/7.jpeg";
-import postImg8 from "./Assets/Post/8.jpeg";
-import postImg9 from "./Assets/Post/9.jpeg";
-import postImg10 from "./Assets/Post/10.jpeg";
-
-import personImg1 from "./Assets/Person/1.jpeg";
-import personImg2 from "./Assets/Person/2.jpeg";
-import personImg3 from "./Assets/Person/3.jpeg";
-import personImg4 from "./Assets/Person/4.jpeg";
-import personImg5 from "./Assets/Person/5.jpeg";
-import personImg6 from "./Assets/Person/6.jpeg";
-import personImg7 from "./Assets/Person/7.jpeg";
-import personImg8 from "./Assets/Person/8.jpeg";
-import personImg9 from "./Assets/Person/9.jpeg";
-import personImg10 from "./Assets/Person/10.jpeg";
+const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
 export const UsersData = [
   {
     id: 1,
-    profilePicture: personImg1,
+    profilePicture: PF + "/Person/1.jpeg",
     username: "Safak Kocaoglu",
   },
   {
     id: 2,
-    profilePicture: personImg2,
+    profilePicture: PF + "/Person/2.jpeg",
     username: "Janell Shrum",
   },
   {
     id: 3,
-    profilePicture: personImg3,
+    profilePicture: PF + "/Person/3.jpeg",
     username: "Alex Durden",
   },
   {
     id: 4,
-    profilePicture: personImg4,
+    profilePicture: PF + "/Person/4.jpeg",
     username: "Dora Hawks",
   },
   {
     id: 5,
-    profilePicture: personImg5,
+    profilePicture: PF + "/Person/5.jpeg",
     username: "Thomas Holden",
   },
   {
     id: 6,
-    profilePicture: personImg6,
+    profilePicture: PF + "/Person/6.jpeg",
     username: "Shirley Beauchamp",
   },
   {
     id: 7,
-    profilePicture: personImg7,
+    profilePicture: PF + "/Person/7.jpeg",
     username: "Travis Bennett",
   },
   {
     id: 8,
-    profilePicture: personImg8,
+    profilePicture: PF + "/Person/8.jpeg",
     username: "Kristen Thomas",
   },
   {
     id: 9,
-    profilePicture: personImg9,
+    profilePicture: PF + "/Person/9.jpeg",
     username: "Gary Duty",
   },
   {
     id: 10,
-    profilePicture: personImg10,
+    profilePicture: PF + "/Person/10.jpeg",
     username: "Safak Kocaoglu",
   },
 ];
@@ -77,7 +57,7 @@ export const PostsData = [
   {
     id: 1,
     desc: "Love For All, Hatred For None.",
-    photo: postImg1,
+    photo: PF + "/Post/1.jpeg",
     date: "5 mins ago",
     userId: 1,
     like: 32,
@@ -85,7 +65,7 @@ export const PostsData = [
   },
   {
     id: 2,
-    photo: postImg2,
+    photo: PF + "/Post/2.jpeg",
     date: "15 mins ago",
     userId: 2,
     like: 2,
@@ -94,7 +74,7 @@ export const PostsData = [
   {
     id: 3,
     desc: "Every moment is a fresh beginning.",
-    photo: postImg3,
+    photo: PF + "/Post/3.jpeg",
     date: "1 hour ago",
     userId: 3,
     like: 61,
@@ -102,7 +82,7 @@ export const PostsData = [
   },
   {
     id: 4,
-    photo: postImg4,
+    photo: PF + "/Post/4.jpeg",
     date: "4 hours ago",
     userId: 4,
     like: 7,
@@ -110,7 +90,7 @@ export const PostsData = [
   },
   {
     id: 5,
-    photo: postImg5,
+    photo: PF + "/Post/5.jpeg",
     date: "5 hours ago",
     userId: 5,
     like: 23,
@@ -118,7 +98,7 @@ export const PostsData = [
   },
   {
     id: 6,
-    photo: postImg6,
+    photo: PF + "/Post/6.jpeg",
     date: "1 day ago",
     userId: 6,
     like: 44,
@@ -127,7 +107,7 @@ export const PostsData = [
   {
     id: 7,
     desc: "Never regret anything that made you smile.",
-    photo: postImg7,
+    photo: PF + "/Post/7.jpeg",
     date: "2 days ago",
     userId: 7,
     like: 52,
@@ -135,7 +115,7 @@ export const PostsData = [
   },
   {
     id: 8,
-    photo: postImg8,
+    photo: PF + "/Post/8.jpeg",
     date: "3 days ago",
     userId: 8,
     like: 15,
@@ -144,7 +124,7 @@ export const PostsData = [
   {
     id: 9,
     desc: "Change the world by being yourself.",
-    photo: postImg9,
+    photo: PF + "/Post/9.jpeg",
     date: "5 days ago",
     userId: 9,
     like: 11,
@@ -152,7 +132,7 @@ export const PostsData = [
   },
   {
     id: 10,
-    photo: postImg10,
+    photo: PF + "/Post/10.jpeg",
     date: "1 week ago",
     userId: 10,
     like: 104,

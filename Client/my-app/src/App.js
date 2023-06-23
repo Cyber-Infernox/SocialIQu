@@ -1,15 +1,14 @@
-import "./App.css";
-
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
+
+import { AuthContext } from "./Context/AuthContext";
+import "./App.css";
 
 // Pages
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Profile from "./Pages/Profile/Profile";
 import Register from "./Pages/Register/Register";
-
-import { AuthContext } from "./Context/AuthContext";
 
 function App() {
   const { user } = useContext(AuthContext);

@@ -1,3 +1,4 @@
+import Close from "../Close/Close";
 import "./Sidebar.css";
 
 import { UsersData } from "../../dummyData";
@@ -11,8 +12,6 @@ import HelpIcon from "@mui/icons-material/Help";
 import WorkIcon from "@mui/icons-material/Work";
 import EventIcon from "@mui/icons-material/Event";
 import SchoolIcon from "@mui/icons-material/School";
-
-import Close from "../Close/Close";
 
 const Sidebar = () => {
   return (

@@ -10,8 +10,10 @@ import "./Profile.css";
 
 const Profile = () => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-  const [user, setUser] = useState({});
+
   const params = useParams();
+
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const fetchUser = async () => {

@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const multer = require("multer");
 const path = require("path");
+
 dotenv.config();
 
 const userRoutes = require("./Routes/User");
@@ -14,6 +15,7 @@ const postRoutes = require("./Routes/Post");
 const express = require("express");
 const app = express();
 
+// File Management Middleware
 app.use("/images", express.static(path.join(__dirname, "Assets/Images")));
 
 // Middlewares

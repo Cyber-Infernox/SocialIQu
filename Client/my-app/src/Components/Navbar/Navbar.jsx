@@ -1,10 +1,8 @@
-import "./Navbar.css";
-
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 import { AuthContext } from "../../Context/AuthContext";
-import DummyProfilePic from "../../Assets/Profile/DummyProfilePic.jpg";
+import "./Navbar.css";
 
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 import PersonIcon from "@mui/icons-material/Person";
@@ -13,6 +11,7 @@ import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   return (
     <div className="navBarContainer">
@@ -53,7 +52,11 @@ const Navbar = () => {
         </div>
         <Link to={`/profile/${user.username}`}>
           <img
-            src={DummyProfilePic || user.profilePicture}
+            src={
+              user.profilePicture
+                ? PF + user.profilePicture
+                : PF + "/Profile/DummyProfilePic.jpg"
+            }
             alt=""
             className="navBarImg"
           />

@@ -6,7 +6,6 @@
 
 .rightbarProfileImgContainer {
   margin-right: 10px;
-  /* position: relative; */
   display: flex;
 }
 
@@ -20,14 +19,3 @@
 .rightbarUsername {
   padding-left: 15px;
 }
-
-/* .rightbarOnline {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: limegreen;
-    position: absolute;
-    top: 545px;
-    left: 1122px;
-    border: 2px solid white;
-  } */

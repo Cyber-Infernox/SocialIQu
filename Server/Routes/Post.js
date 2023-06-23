@@ -1,7 +1,7 @@
+const Router = require("express").Router();
+
 const Post = require("../Models/Post");
 const User = require("../Models/User");
-
-const Router = require("express").Router();
 
 // Create post
 Router.post("/", async (req, res) => {
@@ -35,7 +35,6 @@ Router.delete("/:id", async (req, res) => {
     const post = await Post.findById(req.params.id);
     if (post.userId === req.body.userId) {
       await Post.findByIdAndDelete(req.params.id);
-      //   await post.deleteOne();
       res.status(200).json("Post deleted");
     } else {
       res.status(400).json("You can only delete your post");
@@ -86,8 +85,6 @@ Router.get("/profile/:username", async (req, res) => {
     console.log(err);
   }
 });
-
-module.exports = Router;
 
 // Get timeline posts
 Router.get("/timeline/:userId", async (req, res) => {
