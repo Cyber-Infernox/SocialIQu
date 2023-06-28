@@ -1,2 +1,2 @@
 # SocialIQu
-Let's connect and share in 2023!!
+Let's connect and share!!
