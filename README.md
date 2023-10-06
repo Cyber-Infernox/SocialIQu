@@ -1,2 +1,2 @@
 # SocialIQu
-Let's connect and share!!
+Let's connect and share!
