@@ -19,7 +19,7 @@ const app = express();
 app.use("/images", express.static(path.join(__dirname, "Assets/Images")));
 
 // Middlewares
-app.use(express.json());
+app.use(express.json()); // BodyParser for POST requests
 app.use(helmet());
 app.use(morgan("common"));
 app.use((req, res, next) => {
