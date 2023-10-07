@@ -4,6 +4,7 @@ import axios from "axios";
 import { AuthContext } from "../../Context/AuthContext";
 import Posts from "../Posts/Post";
 import Share from "../Share/Share";
+
 import "./Feed.css";
 
 const Feed = ({ username }) => {
