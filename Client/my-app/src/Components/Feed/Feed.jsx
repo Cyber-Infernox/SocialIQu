@@ -7,6 +7,8 @@ import Share from "../Share/Share";
 
 import "./Feed.css";
 
+// import { PostsData } from "../../dummyData";
+
 const Feed = ({ username }) => {
   const { user } = useContext(AuthContext);
 
