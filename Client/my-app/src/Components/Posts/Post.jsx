@@ -26,6 +26,8 @@ const Post = ({ post }) => {
     const fetchUser = async () => {
       const response = await axios.get(`/api/users?userId=${post.userId}`);
 
+      // console.log(response);
+
       setUser(response.data);
     };
 
@@ -68,7 +70,7 @@ const Post = ({ post }) => {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
-          <img className="postImg" src={PF + "/" + post.img} alt="" />
+          <img className="postImg" src={PF + "/Post/" + post.img} alt="" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
