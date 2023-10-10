@@ -14,21 +14,25 @@ const Feed = ({ username }) => {
 
   const [posts, setPosts] = useState([]);
 
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     const response = username
+  //       ? await axios.get("/api/posts/profile/" + username)
+  //       : await axios.get(`/api/posts/timeline/${user._id}`);
+
+  //     setPosts(
+  //       response.data.sort((p1, p2) => {
+  //         return new Date(p2.createdAt) - new Date(p1.createdAt);
+  //       })
+  //     );
+  //   };
+
+  //   fetchPosts();
+  // }, [username, user._id]);
+
   useEffect(() => {
-    const fetchPosts = async () => {
-      const response = username
-        ? await axios.get("/api/posts/profile/" + username)
-        : await axios.get(`/api/posts/timeline/${user._id}`);
-
-      setPosts(
-        response.data.sort((p1, p2) => {
-          return new Date(p2.createdAt) - new Date(p1.createdAt);
-        })
-      );
-    };
-
-    fetchPosts();
-  }, [username, user._id]);
+    console.log("Feed Rendered");
+  }, []);
 
   return (
     <div className="feed">
