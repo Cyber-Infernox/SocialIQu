@@ -14,9 +14,9 @@ const AuthReducer = (state, action) => {
       };
     case "LOGIN_FAILURE":
       return {
-        user: action.payload,
+        user: null,
         isFetching: false,
-        error: true,
+        error: action.payload,
       };
     // User follow / unfollow context
     case "FOLLOW":

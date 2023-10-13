@@ -55,7 +55,7 @@ const Post = ({ post }) => {
                 className="postProfileImg"
                 src={
                   user.profilePicture
-                    ? PF + user.profilePicture
+                    ? PF + "/Person/" + user.profilePicture
                     : PF + "/Profile/DummyProfilePic.jpg"
                 }
                 alt=""

@@ -49,7 +49,7 @@ const Profile = () => {
                   className="profileUserImg"
                   src={
                     user.profilePicture
-                      ? PF + user.profilePicture
+                      ? PF + "/Person/" + user.profilePicture
                       : PF + "/Profile/DummyProfilePic.jpg"
                   }
                   alt=""

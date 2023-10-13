@@ -54,7 +54,7 @@ const Navbar = () => {
           <img
             src={
               user.profilePicture
-                ? PF + user.profilePicture
+                ? PF + "/Person/" + user.profilePicture
                 : PF + "/Profile/DummyProfilePic.jpg"
             }
             alt=""
