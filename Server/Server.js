@@ -16,7 +16,12 @@ const express = require("express");
 const app = express();
 
 // File Management Middleware
-app.use("/images", express.static(path.join(__dirname, "Assets/Images")));
+// By witing the below code we can get images on typing "http://localhost:8800/Assets/Images/Person/1.jpeg" in the browser.
+// That means we can access the Images directory in the server from client.
+app.use(
+  "/Assets/Images",
+  express.static(path.join(__dirname, "Assets/Images"))
+);
 
 // Middlewares
 app.use(express.json()); // BodyParser for POST requests
@@ -30,10 +35,11 @@ app.use((req, res, next) => {
 // File Management
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "Assets/Images");
+    cb(null, "Assets/Images/Post");
   },
   filename: (req, file, cb) => {
-    cb(null, req.body.name);
+    cb(null, file.originalname);
+    // req.body.name (For frontend)
     // file.originalname (For Postman)
   },
 });

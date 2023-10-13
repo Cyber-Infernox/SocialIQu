@@ -28,7 +28,8 @@ const Share = () => {
 
     if (file) {
       const data = new FormData();
-      const fileName = Date.now() + file.name;
+      const fileName = file.name;
+      // Date.now() +
 
       data.append("file", file);
       data.append("name", fileName);
@@ -69,7 +70,7 @@ const Share = () => {
           />
         </div>
         <hr className="shareHr" />
-        {file && (
+        {/* {file && (
           <div className="shareImgContainer">
             <img
               className="shareImg"
@@ -80,7 +81,7 @@ const Share = () => {
             <CancelIcon className="shareCancel" onClick={() => setFile(null)} />
           </div>
         )}
-        <hr className="shareHr" />
+        <hr className="shareHr" /> */}
         <form className="shareBottom" onSubmit={submitHandler}>
           <div className="shareOptions">
             <label htmlFor="file" className="shareOption">
