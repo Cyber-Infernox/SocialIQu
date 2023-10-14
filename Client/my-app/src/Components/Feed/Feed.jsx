@@ -18,8 +18,7 @@ const Feed = ({ username }) => {
     const fetchPosts = async () => {
       const response = username
         ? await axios.get("/api/posts/profile/" + username)
-        : await axios.get("/api/posts/timeline/651fa416183559c3980fd0ff");
-      // : await axios.get(`/api/posts/timeline/${user._id}`);
+        : await axios.get(`/api/posts/timeline/${user._id}`);
 
       setPosts(
         response.data.sort((p1, p2) => {
