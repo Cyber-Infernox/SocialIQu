@@ -39,6 +39,7 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
+    // Date.now() + file.originalname
     // req.body.name (For frontend)
     // file.originalname (For Postman)
   },

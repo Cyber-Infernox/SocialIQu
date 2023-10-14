@@ -16,20 +16,21 @@ const Rightbar = ({ user }) => {
   const { user: currUser, dispatch } = useContext(AuthContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
-  const [friends, setFriends] = useState([]);
-  const [followed, setFollowed] = useState(
-    currUser.following.includes(user?._id)
-  );
-
   let userId;
   if (user) {
     userId = user._id;
   }
 
+  const [friends, setFriends] = useState([]);
+  const [followed, setFollowed] = useState(currUser.following.includes(userId));
+
+  useEffect(() => {
+    setFollowed(currUser.following.includes(userId));
+  }, [userId, currUser.following]);
+
   useEffect(() => {
     const getFriends = async () => {
       try {
-        // 647b390b2f09580bdd660ed6
         const friendList = await axios.get("/api/users/friends/" + userId);
         setFriends(friendList.data);
       } catch (err) {
