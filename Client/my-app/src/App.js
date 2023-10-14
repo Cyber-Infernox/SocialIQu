@@ -9,6 +9,7 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Profile from "./Pages/Profile/Profile";
 import Register from "./Pages/Register/Register";
+import Messenger from "./Pages/Messenger/Messenger";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -20,22 +21,23 @@ function App() {
           <Route
             path="/"
             element={user ? <Home /> : <Navigate to="/login" />}
-            // user ? <Home /> : <Navigate to="/login" />
           />
           <Route
             path="/login"
             element={!user ? <Login /> : <Navigate to="/" />}
-            // !user ? <Login /> : <Navigate to="/" />
           />
           <Route
             path="/register"
             element={!user ? <Register /> : <Navigate to="/" />}
-            // !user ? <Register /> : <Navigate to="/" />
           />
           <Route
             path="/profile/:username"
             element={user ? <Profile /> : <Navigate to="/login" />}
-            // user ? <Profile /> : <Navigate to="/login" />
+          />
+          <Route
+            path="/messenger"
+            // element={<Messenger />}
+            element={user ? <Messenger /> : <Navigate to="/register" />}
           />
         </Routes>
       </div>

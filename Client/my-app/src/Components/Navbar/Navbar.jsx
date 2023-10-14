@@ -42,7 +42,9 @@ const Navbar = () => {
             <span className="navBarIconBadge">1</span>
           </div>
           <div className="navBarIconItem">
-            <ChatIcon />
+            <Link to="/messenger">
+              <ChatIcon />
+            </Link>
             <span className="navBarIconBadge">1</span>
           </div>
           <div className="navBarIconItem">
