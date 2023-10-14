@@ -12,6 +12,10 @@ export const LoginFailure = (error) => ({
   payload: error,
 });
 
+export const Logout = (user) => ({
+  type: "LOGOUT",
+});
+
 // User follow / unfollow context
 export const Follow = (userId) => ({
   type: "FOLLOW",

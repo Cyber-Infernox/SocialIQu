@@ -105,6 +105,22 @@
   margin-left: 40px;
 }
 
+.rightbarLogoutButton {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: #f2181c;
+  color: white;
+  border-radius: 5px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
 .rightbarFollowText {
   padding-right: 5px;
 }

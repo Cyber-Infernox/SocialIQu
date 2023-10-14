@@ -36,7 +36,6 @@ function App() {
           />
           <Route
             path="/messenger"
-            // element={<Messenger />}
             element={user ? <Messenger /> : <Navigate to="/register" />}
           />
         </Routes>

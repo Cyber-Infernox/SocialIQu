@@ -60,6 +60,11 @@ const Rightbar = ({ user }) => {
     }
   };
 
+  const logoutHandler = () => {
+    localStorage.removeItem("user");
+    dispatch({ type: "LOGOUT" });
+  };
+
   const HomeRightBar = () => {
     return (
       <>
@@ -83,6 +88,11 @@ const Rightbar = ({ user }) => {
   const ProfileRightBar = () => {
     return (
       <>
+        {user.username === currUser.username && (
+          <button className="rightbarLogoutButton" onClick={logoutHandler}>
+            Logout
+          </button>
+        )}
         {user.username !== currUser.username && (
           <button className="rightbarFollowButton" onClick={followHandler}>
             {followed ? (
